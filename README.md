@@ -11,6 +11,6 @@ This is project #4 of Udacity's Front End Developer Nanodegree. In this project,
 
 3. The Jasmine tests are displayed at the bottom of the index.html page. 
 
-4. Open the `jasmine/spec/feedrader.js` file to start editing the test suites.
+4. Open the `jasmine/spec/feedreader.js` file to start editing the test suites.
 
 If you are not familiar with Jasmine, visit the documentation [here](https://jasmine.github.io/ "Jasmine Documentation").
