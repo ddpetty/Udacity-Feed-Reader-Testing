@@ -31,9 +31,9 @@ $(function () {
 		 * and that the URL is not empty.
 		 */
 		it('have a defined URL and the URL is not empty', function () {
-			for (let feedUrl of allFeeds) {
-				expect(feedUrl).toBeDefined();
-				expect(feedUrl.length).not.toBe(0);
+			for (let feed of allFeeds) {
+				expect(feed.url).toBeDefined();
+				expect(feed.url.length).toBeGreaterThan(0);
 			}
 		});
 
@@ -42,9 +42,9 @@ $(function () {
 		 * and that the name is not empty.
 		 */
 		it('have a defined name and the name is not empty', function () {
-			for (let feedName of allFeeds) {
-				expect(feedName).toBeDefined();
-				expect(feedName.length).not.toBe(0);
+			for (let feed of allFeeds) {
+				expect(feed.name).toBeDefined();
+				expect(feed.name.length).not.toBe(0);
 			}
 		});
 	});
@@ -60,7 +60,7 @@ $(function () {
 		 * hiding/showing of the menu element.
 		 */
 		it('is hidden by default', function () {
-			expect(menu.getAttribute('class')).toContain("menu-hidden");
+			expect(menu.classList).toContain("menu-hidden");
 		});
 
 		/* TODO: Write a test that ensures the menu changes
@@ -89,9 +89,7 @@ $(function () {
 		const entry = document.querySelectorAll('.entry');
 		// Before loading the feed
 		beforeEach(function (done) {
-			loadFeed(0, function () {
-				done();
-			});
+			loadFeed(0, done);
 		});
 		it('have at least one entry element in the feed container', function () {
 			expect(entry.length).not.toBeNull();
@@ -107,9 +105,7 @@ $(function () {
 		beforeEach(function (done) {
 			loadFeed(0, function () {
 				initialFeed = document.querySelectorAll('.feed').textContent;
-				loadFeed(1, function () {
-					done();
-				});
+				loadFeed(1, done);
 			});
 		});
 		it('content changes when the feed reloads', function (done) {
